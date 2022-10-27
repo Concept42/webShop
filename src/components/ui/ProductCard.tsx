@@ -1,9 +1,9 @@
 import React from "react";
-import Image, { StaticImageData } from "next/image";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 interface Props {
-  image: StaticImageData;
+  image: any;
   productName: string;
   price: number;
   edition: string;
@@ -12,7 +12,7 @@ interface Props {
 }
 
 function ProductCard({
-  image,
+  // image,
   productName,
   price,
   edition,
@@ -20,14 +20,21 @@ function ProductCard({
   sale,
 }: Props) {
   const router = useRouter();
+  console.log();
   return (
     <div className="font-poppins group relative flex h-full min-w-[300px] flex-col items-center justify-center gap-2 border-r-[1px] border-solid border-gray-200 bg-white  pt-16 transition-all duration-500 hover:shadow-2xl ">
-      <Image
+      {/* <Image
+        loader={() => image}
         onClick={() => router.push("/shop/detailProduct")}
         className="cursor-pointer"
         src={image}
         alt="product"
-      />
+        layout="fill"
+      /> */}
+      {/* <img
+        src="/uploads/detail_01_4639942215.jpeg"
+        alt=""
+      /> */}
       <h2>{productName}</h2>
       <h2>{edition}</h2>
       <h4 className="text-lg text-red-600">${price}</h4>
